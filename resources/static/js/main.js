@@ -1,32 +1,31 @@
-jQuery(document).ready(function($) {
+$(window).on('load', function () {
 
-    /*======= Skillset *=======*/
-    
-    $('.level-bar-inner').css('width', '0');
-    
-    $(window).on('load', function() {
+	$('.level-bar-inner').each(function () {
 
-        $('.level-bar-inner').each(function() {
-        
-            var itemWidth = $(this).data('level');
-            
-            $(this).animate({
-                width: itemWidth
-            }, 800);
-            
-        });
+		var itemWidth = $(this).data('level');
 
-    });
-    
-    /* Bootstrap Tooltip for Skillset */
-    $('.level-label').tooltip();
+		$(this).animate({
+			width: itemWidth
+		}, 800);
+
+	});
+
+});
 
 
-    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    GitHubCalendar("#", "");
-    
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "", selector: "#" });
+jQuery(document).ready(function ($) {
+	/*======= Skillset *=======*/
 
+	$('.level-bar-inner').css('width', '0');
+
+	/* Bootstrap Tooltip for Skillset */
+	$('.level-label').tooltip();
+
+
+	/* Github Calendar - https://github.com/IonicaBizau/github-calendar */
+	new GitHubCalendar("#github-graph", "alexnalivayko", {responsive: true});
+
+
+	/* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
+	GitHubActivity.feed({username: "alexnalivayko", selector: "#ghfeed"});
 });
